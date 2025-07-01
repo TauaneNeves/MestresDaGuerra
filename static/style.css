@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- ESTILOS DA TELA INICIAL --- */
+
+.hidden {
+    display: none !important;
+}
+
+.landing-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.landing-box h2 {
+    margin-top: 0;
+}
+
+.landing-box p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-create {
+    background-color: #2ecc71; /* Verde */
+}
+
+.btn-join {
+    background-color: #3498db; /* Azul */
+}
+
+/* --- ESTILOS GERAIS DO JOGO --- */
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.game-layout {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- PAINEL DE STATUS (ESQUERDA) --- */
+
+#status-panel {
+    flex: 0 0 280px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+#status-panel h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.status-item {
+    margin-bottom: 15px;
+}
+
+.status-item label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.status-item span {
+    font-size: 1.1em;
+}
+
+#player-color, #turn-color {
+    font-weight: bold;
+}
+
+.game-id-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#copy-icon, #waiting-copy-icon {
+    cursor: pointer;
+    color: #777;
+}
+
+/* --- TABULEIRO E PEÇAS (DIREITA) --- */
+
+#game-board-container {
+    flex-grow: 1;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    aspect-ratio: 1 / 1;
+    background-color: #6a737c;
+    border: 3px solid #444;
+    gap: 2px;
+}
+
+.cell {
+    background-color: #a0a9b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.cell.selected {
+    outline: 3px solid #f0e68c;
+    z-index: 10;
+}
+
+.lake {
+    background-color: #3e8ed0;
+    cursor: not-allowed;
+}
+
+.piece {
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.7em;
+    text-align: center;
+    user-select: none;
+    padding: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.piece-p1 { background-color: #d63031; } /* Vermelho */
+.piece-p2 { background-color: #0984e3; } /* Azul */
+
+.piece .rank-icons {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.piece .piece-name {
+    margin-top: 2px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.piece-hidden {
+    background-color: #0984e3; /* Cor do oponente */
+    font-size: 2.5em;
+    font-weight: bold;
+}

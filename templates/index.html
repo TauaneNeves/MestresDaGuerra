@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combate Multiplayer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Combate Multiplayer</h1>
+            <p>Capture a bandeira do oponente para vencer.</p>
+        </header>
+
+        <div id="landing-screen">
+            <div class="landing-box">
+                <div id="welcome-state">
+                    <h2>Bem-vindo ao Campo de Batalha</h2>
+                    <p>Esta é a sua central de comando. A partir daqui, você pode iniciar uma nova campanha...</p>
+                    <div class="button-group">
+                        <button id="create-game-btn" class="btn btn-create">Criar Novo Jogo</button>
+                        <button id="join-game-btn" class="btn btn-join">Entrar em um Jogo</button>
+                    </div>
+                </div>
+
+                <div id="waiting-state" class="hidden">
+                    <h2>Sala Criada!</h2>
+                    <p>Compartilhe o ID abaixo com seu amigo para que ele possa entrar na batalha.</p>
+                    <div class="game-id-wrapper" style="max-width: 200px; margin: 20px auto;">
+                        <span id="waiting-game-id">---</span>
+                        <i class="far fa-copy" id="waiting-copy-icon"></i>
+                    </div>
+                    <p><strong>Aguardando oponente se conectar...</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div class="game-layout">
+                <aside id="status-panel">
+                    <h2>Status da Missão</h2>
+                    <div class="status-item">
+                        <label>ID do Jogo:</label>
+                        <div class="game-id-wrapper">
+                            <span id="game-id">---</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <label>Sua Cor:</label>
+                        <span id="player-color">---</span>
+                    </div>
+                    <div class="status-item">
+                        <label>Turno Atual:</label>
+                        <span id="turn-color">---</span>
+                    </div>
+                    <div class="status-item">
+                        <label>Mensagem do QG:</label>
+                        <span id="qg-message">Carregando mapa...</span>
+                    </div>
+                </aside>
+                <main id="game-board-container">
+                    <div id="game-board"></div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
